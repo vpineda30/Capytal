@@ -1,0 +1,23 @@
+.variable-expenses-card {
+    width: 48%;
+    padding: 1.5rem;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.variable-expenses-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.variable-expenses-card-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.variable-expenses-card-value {
+    font-size: 25px;
+    font-weight: 600;
+}

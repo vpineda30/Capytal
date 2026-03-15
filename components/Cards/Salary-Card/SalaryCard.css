@@ -1,0 +1,56 @@
+.salary-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--border);
+    border-radius: 1rem;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.salary-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.salary-card-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.salary-card-amount-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.salary-card-amount {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.salary-card-eye-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    color: #636367;
+    transition: color 0.2s ease;
+}
+
+.salary-card-eye-icon:hover {
+    color: #ffffff;
+}
+
+.salary-card-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.salary-card-main-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1.25rem;
+}

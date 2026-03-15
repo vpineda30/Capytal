@@ -1,0 +1,51 @@
+.dashboard-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.dashboard-title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.expenses-cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.my-goals {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    gap: 10px;
+}
+
+.my-goals-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.goals-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.show-more-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}

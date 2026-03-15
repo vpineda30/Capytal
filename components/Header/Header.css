@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+.menu {
+    cursor: pointer;
+}

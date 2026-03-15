@@ -1,0 +1,11 @@
+.button-primary {
+    background-color: transparent;
+    color: var(--positive);
+    border: 2px solid var(--positive);
+    border-radius: 8px;
+    padding: 5px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

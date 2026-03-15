@@ -1,65 +1,50 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import "./page.css";
+import AnalysticsCard from "@/components/Cards/Analystics-Card/AnalysticsCard";
+import SalaryCard from "@/components/Cards/Salary-Card/SalaryCard";
+import { Header } from "@/components/Header/Header";
+import { FixedExpensesCard } from "@/components/Cards/Fixed-Expenses-Card/FixedExpensesCard";
+import { VariableExpensesCard } from "@/components/Cards/Variable-Expenses-Card/VariableExpensesCard";
+import { motion } from "motion/react";
+import { GoalsCard } from "@/components/Cards/Goals-Card/GoalsCard";
+import { ButtonPrimary } from "@/components/Buttons/Button-Primary/ButtonPrimary";
+
+export default function Dashboard() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="dashboard-main">
+      <Header />
+      <motion.h1 className="dashboard-title"
+        initial={{ opacity: 0, y: 5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}>Meu Dashboard</motion.h1>
+
+      <div className="dashboard-content">
+        <SalaryCard value={5300} />
+        <AnalysticsCard value={2506.83} goalValueInvested={3185.50} goalValueFinal={3200.00} />
+
+        <div className="expenses-cards">
+          <FixedExpensesCard value={2150.00} />
+          <VariableExpensesCard value={643.17} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="my-goals">
+          <h3 className="my-goals-title">Minhas Metas</h3>
+
+          <motion.div className="goals-cards-container"
+            initial={{ opacity: 0, y: 5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}>
+
+            <GoalsCard title="Macbook NEO" progress={93} goalValueInvested={3185.50} goalValue={3200.00} />
+            <GoalsCard title="Viagem para a Europa" progress={47} goalValueInvested={4660.00} goalValue={10000.00} />
+          </motion.div>
+
+          <div className="show-more-button">
+            <ButtonPrimary text="Mostrar mais" />
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
