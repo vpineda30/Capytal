@@ -1,7 +1,8 @@
 "use client"
 
-import { animate, motion, useMotionValue, useTransform } from "motion/react";
 import "./AnalysticsCard.css";
+import { animate, motion, useMotionValue, useTransform } from "motion/react";
+import { ChartNoAxesCombined } from 'lucide-react';
 import { useEffect } from "react";
 
 type AnalysticsProps = {
@@ -10,7 +11,7 @@ type AnalysticsProps = {
     goalValueFinal: number
 }
 
-export default function AnalysticsCard({ value, goalValueInvested, goalValueFinal }: AnalysticsProps) {
+export function AnalysticsCard({ value, goalValueInvested, goalValueFinal }: AnalysticsProps) {
     const count = useMotionValue(0);
     const rounded = useTransform(count, (latest) => {
         return latest.toLocaleString('pt-BR', {
@@ -29,8 +30,11 @@ export default function AnalysticsCard({ value, goalValueInvested, goalValueFina
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}>
-
-            <h3 className="analytics-card-title">Análise rápida</h3>
+            
+            <div className="analytics-card-header">
+                <h3 className="analytics-card-title">Análise rápida</h3>
+                <ChartNoAxesCombined className="analytics-card-icon" size={25} />
+            </div>
 
             <div className="analytics-prevision">
                 <h3 className="analytics-prevision-title">Previsão de sobra desse mês</h3>
@@ -40,7 +44,7 @@ export default function AnalysticsCard({ value, goalValueInvested, goalValueFina
                     animate={{ opacity: 1 }} 
                     transition={{ duration: 0.3, ease: "easeInOut", delay: 3 }}>
                         
-                        {" -> "} 3% a mais que no mês anterior
+                        {" -> "} 3% a mais que o mês anterior
                     </motion.span>
                 </h1>
             </div>

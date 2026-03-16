@@ -5,7 +5,20 @@
     border-radius: 1rem;
     width: 100%;
     padding: 1.5rem;
-    gap: 30px;
+    gap: 10px;
+}
+
+.analytics-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.analytics-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1.25rem;
+    color: var(--info);
 }
 
 .analytics-card-title {
@@ -40,6 +53,7 @@
 }
 
 .goal-progress {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 8px;

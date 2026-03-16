@@ -2,7 +2,7 @@
 
 import { Eye } from "lucide-react";
 import { EyeClosed } from "lucide-react";
-import { HandCoins } from "lucide-react";
+import { WalletCards } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import "./SalaryCard.css";
@@ -11,7 +11,7 @@ type SalaryProps = {
     value: number
 }
 
-export default function SalaryCard({ value }: SalaryProps) {
+export function SalaryCard({ value }: SalaryProps) {
     const [showSalary, setShowSalary] = useState(false);
 
     return (
@@ -38,7 +38,7 @@ export default function SalaryCard({ value }: SalaryProps) {
             </div>
 
             <div className="salary-card-icon-wrapper">
-                <HandCoins className="salary-card-main-icon" size={50} />
+                <WalletCards className="salary-card-main-icon" size={50} />
             </div>
         </motion.div>
     );

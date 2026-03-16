@@ -1,19 +1,22 @@
 "use client"
 
 import "./page.css";
-import AnalysticsCard from "@/components/Cards/Analystics-Card/AnalysticsCard";
-import SalaryCard from "@/components/Cards/Salary-Card/SalaryCard";
-import { Header } from "@/components/Header/Header";
+import { motion } from "motion/react";
+import Header from "@/components/Header/Header";
+import { SalaryCard } from "@/components/Cards/Salary-Card/SalaryCard";
+import { AnalysticsCard } from "@/components/Cards/Analystics-Card/AnalysticsCard";
 import { FixedExpensesCard } from "@/components/Cards/Fixed-Expenses-Card/FixedExpensesCard";
 import { VariableExpensesCard } from "@/components/Cards/Variable-Expenses-Card/VariableExpensesCard";
-import { motion } from "motion/react";
 import { GoalsCard } from "@/components/Cards/Goals-Card/GoalsCard";
 import { ButtonPrimary } from "@/components/Buttons/Button-Primary/ButtonPrimary";
+import { NavBottom } from "@/components/Nav-Bottom/NavBottom";
+import { Goal } from "lucide-react";
 
 export default function Dashboard() {
   return (
     <main className="dashboard-main">
       <Header />
+
       <motion.h1 className="dashboard-title"
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,8 +31,15 @@ export default function Dashboard() {
           <VariableExpensesCard value={643.17} />
         </div>
 
-        <div className="my-goals">
-          <h3 className="my-goals-title">Minhas Metas</h3>
+        <motion.div className="my-goals"
+          initial={{ opacity: 0, y: 5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}>
+
+          <div className="my-goals-header">
+            <h3 className="my-goals-title">Minhas Metas</h3>
+            <Goal className="goal-icon" />
+          </div>
 
           <motion.div className="goals-cards-container"
             initial={{ opacity: 0, y: 5 }}
@@ -43,8 +53,9 @@ export default function Dashboard() {
           <div className="show-more-button">
             <ButtonPrimary text="Mostrar mais" />
           </div>
-        </div>
+        </motion.div>
       </div>
+      <NavBottom />
     </main>
   );
 }
