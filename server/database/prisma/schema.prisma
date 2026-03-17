@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String  @id @default(uuid())
+  name     String
+  email    String  @unique
+  password String
+  salary   Decimal @default(0)
+
+  expenses Expense[]
+  goals    Goal[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+enum Category {
+  HOUSING
+  FOOD
+  TRANSPORT
+  HEALTH
+  LEISURE
+  OTHERS
+}
+
+enum ExpenseType {
+  FIXED
+  VARIABLE
+}
+
+model Expense {
+  id       String      @id @default(uuid())
+  name     String
+  value    Decimal     @default(0)
+  type     ExpenseType 
+  category Category    @default(OTHERS)
+  date     DateTime    @default(now())
+  isPaid   Boolean     @default(false)
+  userId   String
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  @@map("expenses")
+}
+
+model Goal {
+  id           String   @id @default(uuid())
+  name         String
+  goalValue    Decimal  @default(0)
+  currentValue Decimal  @default(0)
+  monthlyValue Decimal  @default(0)
+  progress     Decimal  @default(0)
+  date         DateTime @default(now())
+  deadline     DateTime?
+  userId       String
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("goals")
+}
